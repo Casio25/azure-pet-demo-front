@@ -20,17 +20,18 @@ jobs:
       - name: Install
         run: npm ci
 
+      - name: Show NEXT_PUBLIC vars
+        run: env | grep NEXT_PUBLIC || true
+
       - name: Build (Next static export)
         run: npm run build
-        # в next.config.js должно быть output: "export"
-        # готовая статика окажется в ./out
-        
         env:
-          NEXT_PUBLIC_API_BASE: ${{ secrets.NEXT_PUBLIC_API_BASE }}
+          NEXT_PUBLIC_API_BASE: https://azure-pet-demo-back-bxcdccebbmhmbwaw.polandcentral-01.azurewebsites.net
+
       - name: Deploy to Azure Static Web Apps
         uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
-          action: "upload"
-          app_location: "/"
-          output_location: "out"
+          action: upload
+          app_location: /
+          output_location: out
