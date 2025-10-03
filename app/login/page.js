@@ -17,7 +17,7 @@ export default function Login() {
             const r = await fetch(`${API}/auth/login`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                credentials: 'include', // важно для куки
+                credentials: 'include', 
                 body: JSON.stringify({ email, password }),
             })
             if (!r.ok) {
@@ -25,7 +25,7 @@ export default function Login() {
                 throw new Error(t || `Login failed: ${r.status}`)
             }
             setOk(true)
-            // опционально: редирект через секунду на /photos
+            
             setTimeout(() => { window.location.href = '/photos' }, 800)
         } catch (e) {
             setError(e.message || 'Login error')
