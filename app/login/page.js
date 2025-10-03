@@ -8,7 +8,7 @@ export default function Login() {
     const [ok, setOk] = useState(false)
     const [error, setError] = useState('')
 
-    const API = process.env.NEXT_PUBLIC_API_BASE || 'http://localhost:4001'
+    const API = process.env.NEXT_PUBLIC_API_BASE
 
     async function submit(e) {
         e.preventDefault()
