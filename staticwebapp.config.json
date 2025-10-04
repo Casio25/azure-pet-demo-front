@@ -1,0 +1,11 @@
+{
+    "routes": [
+        {
+            "route": "/api/*",
+            "backendUri": "https://azure-pet-demo-back-bxcdccebbmhmbwaw.polandcentral-01.azurewebsites.net"
+        }
+    ],
+    "navigationFallback": {
+        "rewrite": "/index.html"
+    }
+}

@@ -9,14 +9,13 @@ export default function Login() {
     const [error, setError] = useState('')
 
     const API = process.env.NEXT_PUBLIC_API_BASE
-    console.log('API_BASE =', process.env.NEXT_PUBLIC_API_BASE);
-
+    
 
     async function submit(e) {
         e.preventDefault()
         setLoading(true); setOk(false); setError('')
         try {
-            const r = await fetch(`${API}/auth/login`, {
+            const r = await fetch(`api/auth/login`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 credentials: 'include', 
